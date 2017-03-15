@@ -39,6 +39,8 @@ public class TicTacToe extends Application {
         primaryStage.setTitle("Hello World!");
         primaryStage.setScene(scene);
         primaryStage.show();
+        
+        //Added by Roman
     }
 
     /**
