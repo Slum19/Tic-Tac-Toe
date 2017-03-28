@@ -19,10 +19,12 @@ public class Board1
      */
     public Board1()
     {
-        // initialise instance variables
 
     }
+    //creates new board array list
     String board [][] = new String[3][3];
+    
+    //sets the different positions of the array list into blank spots instead of nulls
     public void fillBoard(){
         for (int x= 0; x<3; x++){
             for (int y= 0; y<3; y++){
@@ -31,6 +33,7 @@ public class Board1
         }
     }
     
+    //prints out the current board
     public void postBoard(){
         for (int x = 0; x<3; x++){
             for (int y = 0; y<3; y++){
@@ -40,43 +43,53 @@ public class Board1
         }
     }
     
+    //sets the X position for a user chosen spot
     public void setPositionX(int x, int y){
         row = x;
         col = y;
+        //checks to see if the spot is empty
         if (board[row][col].equals("   ")){
             game = true;
             board[row][col]=" X ";
         }
+        //if already taken, lets the user know
         else{
             System.out.println("Choose a different spot.");
         }
     }
     
+    //sets the O position for a user chosen spot
     public void setPositionO(int x, int y){
         row = x;
         col = y;
+        //checks to see if the spot is empty
         if (board[row][col].equals("   ")){
             game = true;
             board[row][col]=" O ";
         }
+        //if already taken, lets the user know
         else{
             System.out.println("Choose a different spot.");
         }
     }
     
+    //sets the O position for a computer chosen spot
     public void setComO(int x, int y){
         row = x;
         col = y;
+        //checks to see if the spot is empty
         if (board[row][col].equals("   ")){
             game = true;
             board[row][col]=" O ";
         }
+        //if already is taken, lets the user know
         else{
             System.out.println("Choose a different spot.");
         }
     }
     
     public void checkThreeX(){
+    //dab2 boolean checks to see if a user won. If dab2 remains false, it tells the computer to print tied game
         //check first row horizontal
         if (board[0][0].equals(" X ")){
             if (board[0][1].equals(" X ")){
