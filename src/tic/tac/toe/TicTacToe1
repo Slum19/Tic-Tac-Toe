@@ -1,0 +1,114 @@
+ /**
+     * Write a description of class TicTacToe1 here.
+     * 
+     * @author (your name) 
+     * @version (a version number or a date)
+     */
+    import java.util.Random;
+    public class TicTacToe1
+    {
+        // instance variables - replace the example below with your own
+        Random randomGenerator = new Random();
+        /**
+         * Constructor for objects of class TicTacToe1
+         */
+        public TicTacToe1()
+        {
+            // initialise instance variables
+        }
+        //for two players
+        public void play2(){
+            //initialize objects and variables
+            Board1 b = new Board1();
+            Player1 p1 = new Player1();
+            Player1 p2 = new Player1();
+            b.fillBoard();
+            //a total of 8 turns
+            for (int x =0; x<4; x++){
+                p1.ask();
+                b.setPositionX(p1.rowNum,p1.colNum);
+                System.out.println("");
+                b.postBoard();
+                b.checkThreeX();
+                p1.check = false;
+                p1.yes1 = false;
+                p1.yes2 = false;
+                p2.ask();
+                b.setPositionO(p2.rowNum,p2.colNum);
+                System.out.println("");
+                b.postBoard();
+                b.checkThreeO();
+                p2.check = false;
+                p2.yes1 = false;
+                p2.yes2 = false;
+            }
+            p1.ask();
+            b.setPositionX(p1.rowNum,p1.colNum);
+            System.out.println("");
+            b.postBoard();
+            b.checkThreeX();
+            if (b.dab2 == false){
+                for (int row = 0; row < 3; row++){
+                    for (int col = 0; col < 3; col++){
+                        if (b.board[row][col] != "   "){
+                            System.out.println("Tied Game");
+                        }
+                    }
+                }
+            }
+        }
+        
+        //for single player
+        public void play1(){
+            Board1 b = new Board1();
+            Player1 p1 = new Player1();
+            b.fillBoard();
+            boolean taken = false;
+            boolean yes = false;
+            for (int x =0; x<4; x++){
+                p1.ask();
+                System.out.println("");
+                b.postBoard();
+                b.checkThreeX();
+                p1.check = false;
+                p1.yes1 = false;
+                p1.yes2 = false;
+                b.game = false;
+                p1.askComputer();
+                if (b.board[p1.comRowNum][p1.comColNum] != "   "){ 
+                    while(yes == false){
+                        p1.comRowNum = randomGenerator.nextInt(3);
+                        p1.comColNum = randomGenerator.nextInt(3);
+                        if(b.board[p1.comRowNum][p1.comColNum].equals("   ")){
+                            b.setComO(p1.comRowNum,p1.comColNum);
+                            yes = true;
+                        }
+                    }
+                }
+                else {
+                    b.setComO(p1.comRowNum,p1.comColNum);
+                }
+                System.out.println("");
+                System.out.println("Board's move");
+                b.postBoard();
+                b.checkThreeO();
+                b.game = false;
+                taken = false;
+                yes = false;
+            }
+            p1.ask();
+            b.setPositionX(p1.rowNum,p1.colNum);
+            System.out.println("");
+            b.postBoard();
+            b.checkThreeX();
+            if (b.dab2 == false){
+                for (int row = 0; row < 3; row++){
+                    for (int col = 0; col < 3; col++){
+                        if (b.board[row][col] != "   "){
+                            System.out.println("Tied Game");
+                        }
+                    }
+                }
+            }
+        }
+    }
