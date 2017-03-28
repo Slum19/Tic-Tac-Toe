@@ -7,16 +7,19 @@
 import java.util.Scanner;
 public class TicTacToe1Driver
 {
-    // instance variables - replace the example below with your own
     public static void main (String[] args){
+        //creates new TicTacToe1 object
         TicTacToe1 game = new TicTacToe1();
         int answer;
         Scanner scanner = new Scanner(System.in);
+        //asks user if he/she wants to play single player or two player
         System.out.println("Single player or two players? (1 or 2)");
         answer = scanner.nextInt();
+        //if the user responds with 1, it plays the single player mode
         if (answer == 1){
             game.play1();
         }
+        //if the user responds with 2, it plays the two player mode
         if (answer == 2){ 
             game.play2();
         }
