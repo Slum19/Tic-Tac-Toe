@@ -17,9 +17,6 @@ public class Player1
     public int comRowNum;
     public int comColNum;
     Random randomGenerator = new Random();
-    boolean check = false;
-    boolean yes1 = false;
-    boolean yes2 = false;
     /**
      * Constructor for objects of class Player1
      */
@@ -28,21 +25,27 @@ public class Player1
        
     }
     public void ask(){
+        //asks the user for the row number and sets a variable to the user's input
         System.out.println("Enter row number: ");
+        //checks to see if number is in range
         if (rowNum>3 || rowNum<0){
             System.out.println("Number not in range");
-            check = true;
         }
+        //sets number to the user's input -1 because of coding stuff and numbers start with 0
         rowNum = scanner.nextInt()-1;
+        
+        //asks the user for the column number and sets a varibale to the user's input
         System.out.println("Enter column number: ");
+        //checks to see if number is in range
         if (colNum>3 || colNum<0){
             System.out.println("Number not in range");
-            check = true;
         }
+        //sets number to the user's input -1 because of coding stuff and numbers start with 0
         colNum = scanner.nextInt()-1;
         
     }
     public void askComputer(){
+        //generates two random numbers between 1 and 3 as the computer's row number and the computer's column number
         comRowNum = randomGenerator.nextInt(3);
         comColNum = randomGenerator.nextInt(3);
     }
