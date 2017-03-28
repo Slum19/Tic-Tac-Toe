@@ -22,26 +22,27 @@
             Board1 b = new Board1();
             Player1 p1 = new Player1();
             Player1 p2 = new Player1();
+            //makes board filled with blank spots rather than null
             b.fillBoard();
-            //a total of 8 turns
+            //a total of 8 turns of gameplay
             for (int x =0; x<4; x++){
+                //gets user input
                 p1.ask();
+                //sets position according to user input
                 b.setPositionX(p1.rowNum,p1.colNum);
                 System.out.println("");
+                //posts the current board
                 b.postBoard();
+                //checks to see if player 1 won
                 b.checkThreeX();
-                p1.check = false;
-                p1.yes1 = false;
-                p1.yes2 = false;
                 p2.ask();
                 b.setPositionO(p2.rowNum,p2.colNum);
                 System.out.println("");
                 b.postBoard();
+                //checks to see if player 2 won
                 b.checkThreeO();
-                p2.check = false;
-                p2.yes1 = false;
-                p2.yes2 = false;
             }
+            //extra turn for p1 to fill up last spot available on the board
             p1.ask();
             b.setPositionX(p1.rowNum,p1.colNum);
             System.out.println("");
@@ -50,6 +51,7 @@
             if (b.dab2 == false){
                 for (int row = 0; row < 3; row++){
                     for (int col = 0; col < 3; col++){
+                        //if every spot on the board is taken and no one won
                         if (b.board[row][col] != "   "){
                             System.out.println("Tied Game");
                         }
@@ -65,16 +67,15 @@
             b.fillBoard();
             boolean taken = false;
             boolean yes = false;
+            //a total of 8 turns of gameplay
             for (int x =0; x<4; x++){
                 p1.ask();
                 System.out.println("");
                 b.postBoard();
                 b.checkThreeX();
-                p1.check = false;
-                p1.yes1 = false;
-                p1.yes2 = false;
                 b.game = false;
                 p1.askComputer();
+                //if the AI chooses a spot that is taken, it repeatedly generates two random numbers until it finds an open spot
                 if (b.board[p1.comRowNum][p1.comColNum] != "   "){ 
                     while(yes == false){
                         p1.comRowNum = randomGenerator.nextInt(3);
