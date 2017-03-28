@@ -1,0 +1,24 @@
+/**
+ * Write a description of class TicTacToe1Driver here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
+import java.util.Scanner;
+public class TicTacToe1Driver
+{
+    // instance variables - replace the example below with your own
+    public static void main (String[] args){
+        TicTacToe1 game = new TicTacToe1();
+        int answer;
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Single player or two players? (1 or 2)");
+        answer = scanner.nextInt();
+        if (answer == 1){
+            game.play1();
+        }
+        if (answer == 2){ 
+            game.play2();
+        }
+    }
+}
