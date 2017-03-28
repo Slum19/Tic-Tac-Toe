@@ -1,0 +1,244 @@
+/**
+ * Write a description of class Board1 here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
+
+public class Board1
+{
+    // instance variables - replace the example below with your own
+    int row = 0;
+    int col = 0;
+    boolean win = false;
+    boolean game = false;
+    boolean dab1 = false;
+    boolean dab2 = false;
+    /**
+     * Constructor for objects of class Board1
+     */
+    public Board1()
+    {
+        // initialise instance variables
+
+    }
+    String board [][] = new String[3][3];
+    public void fillBoard(){
+        for (int x= 0; x<3; x++){
+            for (int y= 0; y<3; y++){
+                board[x][y]="   ";
+            }
+        }
+    }
+    
+    public void postBoard(){
+        for (int x = 0; x<3; x++){
+            for (int y = 0; y<3; y++){
+                System.out.print(board[x][y]);
+            }
+            System.out.println("   ");
+        }
+    }
+    
+    public void setPositionX(int x, int y){
+        row = x;
+        col = y;
+        if (board[row][col].equals("   ")){
+            game = true;
+            board[row][col]=" X ";
+        }
+        else{
+            System.out.println("Choose a different spot.");
+        }
+    }
+    
+    public void setPositionO(int x, int y){
+        row = x;
+        col = y;
+        if (board[row][col].equals("   ")){
+            game = true;
+            board[row][col]=" O ";
+        }
+        else{
+            System.out.println("Choose a different spot.");
+        }
+    }
+    
+    public void setComO(int x, int y){
+        row = x;
+        col = y;
+        if (board[row][col].equals("   ")){
+            game = true;
+            board[row][col]=" O ";
+        }
+        else{
+            System.out.println("Choose a different spot.");
+        }
+    }
+    
+    public void checkThreeX(){
+        //check first row horizontal
+        if (board[0][0].equals(" X ")){
+            if (board[0][1].equals(" X ")){
+                if (board[0][2].equals(" X ")){
+                    System.out.println("Player 1 Wins");
+                    win = true;
+                    dab2 = true;
+                }
+            }
+        }
+        //check second row horizontal
+        if (board[1][0].equals(" X ")){
+            if (board[1][1].equals(" X ")){
+                if (board[1][2].equals(" X ")){
+                    System.out.println("Player 1 Wins");
+                    win = true;
+                    dab2 = true;
+                }
+            }
+        }
+        //check third row horizontal
+        if (board[2][0].equals(" X ")){
+            if (board[2][1].equals(" X ")){
+                if (board[2][2].equals(" X ")){
+                    System.out.println("Player 1 Wins");
+                    win = true;
+                    dab2 = true;
+                }
+            }
+        }
+        // check first column 
+        if (board[0][0].equals(" X ")){
+            if (board[1][0].equals(" X ")){
+                if (board[2][0].equals(" X ")){
+                    System.out.println("Player 1 Wins");
+                    win = true;
+                    dab2 = true;
+                }
+            }
+        }
+        // check second column
+        if (board[1][0].equals(" X ")){
+            if (board[1][1].equals(" X ")){
+                if (board[1][2].equals(" X ")){
+                    System.out.println("Player 1 Wins");
+                    win = true;
+                    dab2 = true;
+                }
+            }
+        }
+        // check for third column 
+        if (board[2][0].equals(" X ")){
+            if (board[2][1].equals(" X ")){
+                if (board[2][2].equals(" X ")){
+                    System.out.println("Player 1 Wins");
+                    win = true;
+                    dab2 = true;
+                }
+            }
+        }
+        // check diagonally 
+        if (board[0][0].equals(" X ")){
+            if (board[1][1].equals(" X ")){
+                if (board[2][2].equals(" X ")){
+                    System.out.println("Player 1 Wins");
+                    win = true;
+                    dab2 = true;
+                }
+            }
+        }
+        if (board[0][2].equals(" X ")){
+            if (board[1][1].equals(" X ")){
+                if (board[2][0].equals(" X ")){
+                    System.out.println("Player 1 Wins");
+                    win = true;
+                    dab2 = true;
+                }
+            }
+        }
+    }
+
+    public void checkThreeO(){
+        //check first row horizontal
+        if (board[0][0].equals(" O ")){
+            if (board[0][1].equals(" O ")){
+                if (board[0][2].equals(" O ")){
+                    System.out.println("Player 2 Wins");
+                    win = true;
+                    dab2 = true;
+                }
+            }
+        }
+        //check second row horizontal
+        if (board[1][0].equals(" O ")){
+            if (board[1][1].equals(" O ")){
+                if (board[1][2].equals(" O ")){
+                    System.out.println("Player 2 Wins");
+                    win = true;
+                    dab2 = true;
+                }
+            }
+        }
+        //check third row horizontal
+        if (board[2][0].equals(" O ")){
+            if (board[2][1].equals(" O ")){
+                if (board[2][2].equals(" O ")){
+                    System.out.println("Player 2 Wins");
+                    win = true;
+                    dab2 = true;
+                }
+            }
+        }
+        // check first column 
+        if (board[0][0].equals(" O ")){
+            if (board[1][0].equals(" O ")){
+                if (board[2][0].equals(" O ")){
+                    System.out.println("Player 2 Wins");
+                    win = true;
+                    dab2 = true;
+                }
+            }
+        }
+        // check second column
+        if (board[1][0].equals(" O ")){
+            if (board[1][1].equals(" O ")){
+                if (board[1][2].equals(" O ")){
+                    System.out.println("Player 2 Wins");
+                    win = true;
+                    dab2 = true;
+                }
+            }
+        }
+        // check for third column 
+        if (board[2][0].equals(" O ")){
+            if (board[2][1].equals(" O ")){
+                if (board[2][2].equals(" O ")){
+                    System.out.println("Player 2 Wins");
+                    win = true;
+                    dab2 = true;
+                }
+            }
+        }
+        // check diagonally 
+        if (board[0][0].equals(" O ")){
+            if (board[1][1].equals(" O ")){
+                if (board[2][2].equals(" O ")){
+                    System.out.println("Player 2 Wins");
+                    win = true;
+                    dab2 = true;
+                }
+            }
+        }
+        if (board[0][2].equals(" O ")){
+            if (board[1][1].equals(" O ")){
+                if (board[2][0].equals(" O ")){
+                    System.out.println("Player 2 Wins");
+                    win = true;
+                    dab2 = true;
+                }
+            }
+        }
+    }
+    
+  
+}
