@@ -70,6 +70,7 @@
             //a total of 8 turns of gameplay
             for (int x =0; x<4; x++){
                 p1.ask();
+                b.setPositionX(p1.rowNum,p1.colNum);
                 System.out.println("");
                 b.postBoard();
                 b.checkThreeX();
